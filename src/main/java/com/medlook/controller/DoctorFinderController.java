@@ -19,10 +19,7 @@ public class DoctorFinderController {
     public ResponseEntity<?> findDoctors(@RequestParam("id") long patientId)
     {
         List<Doctor> doctors = doctorFinderService.findDoctors(patientId);
-        if (!doctors.isEmpty())
-        {
-            return new ResponseEntity<>(doctors, HttpStatus.OK);
-        }
-        return new ResponseEntity<>("There isn't any doctor present at your location for your symptom", HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(doctors, HttpStatus.OK);
+//        return new ResponseEntity<>(, HttpStatus.NOT_FOUND);
     }
 }

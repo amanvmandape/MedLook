@@ -1,6 +1,5 @@
 package com.medlook.entity;
 
-import com.medlook.enums.DocCities;
 import com.medlook.enums.Speciality;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
@@ -21,9 +20,9 @@ public class Doctor {
     @Column(name = "name", nullable = false, length = 200)
     private String name;
 
-    @Enumerated(EnumType.STRING)
-    @Column(name = "city", nullable = false)
-    private DocCities city;
+    @ManyToOne
+    @JoinColumn(name = "city_id")
+    private City city;
 
     @Email
     @Column(name = "email", nullable = false, length = 200)
@@ -36,5 +35,4 @@ public class Doctor {
     @Enumerated(EnumType.STRING)
     @Column(name = "speciality", nullable = false)
     private Speciality speciality;
-
 }
