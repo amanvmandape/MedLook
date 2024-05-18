@@ -16,7 +16,7 @@ public class Doctor {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Size(min=3)
+    @Size(min=3, message="Name must be at least 3 characters")
     @Column(name = "name", nullable = false, length = 200)
     private String name;
 
@@ -24,11 +24,11 @@ public class Doctor {
     @JoinColumn(name = "city_id")
     private City city;
 
-    @Email
+    @Email(message="Enter a valid email address")
     @Column(name = "email", nullable = false, length = 200)
     private String email;
 
-    @Size(min=10)
+    @Size(min=10, message="Phone number must be at least 10 characters")
     @Column(name = "phone_no", nullable = false, length = 20)
     private String phoneNo;
 
