@@ -2,6 +2,7 @@ package com.medlook.controller;
 
 import com.medlook.entity.Patient;
 import com.medlook.service.PatientService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,7 +15,7 @@ public class PatientController {
     private final PatientService patientService;
 
     @PostMapping("/add")
-    public ResponseEntity<Patient> addDoctor(@RequestBody Patient patient) {
+    public ResponseEntity<Patient> addDoctor(@Valid @RequestBody Patient patient) {
         Patient saved = patientService.addPatient(patient);
         return new ResponseEntity<>(saved, HttpStatus.CREATED);
     }
